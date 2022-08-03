@@ -1,63 +1,40 @@
-console.log("Proyecto entregable ");
+// La idea es generar un convertidor de monedas, en este caso desde pesos argentinos hacía dolar oficial, dolar oficial + imp, euro.
 
+//function convertidorMonedas (monedaArgentina, dolarOficial, dolarImpuestos, euro) {}
 
-//---------- if -----------
+// 1 : dolar oficial -> donde un case dirija hacia la propiedad de multiplicar la cantidad de pesos que se indique x el valor de 1 dolar oficial
 
-/*
+// 2 : dolar con impuesto -> donde un case dirija hacia la propiedad de multiplicar la cantidad de pesos que se indique x el valor de 1 dolar oficial + 65% de su valor 
 
-alert("Vamos a jugar a un juego. Ingresa un número del 1 al 10, si ese número es igual al elegido por mi, ingresas directo a la página")
-let numero = Number(prompt("Ingresa un número menor a 10"));
+// 3 : euro -> donde un case dirija hacia la propiedad de multiplicar la cantidad de pesos que se indique x el valor de 1 euro
 
-if (numero == 5) {
-    alert("Has acertado, bienvenido al inicio")
-} else  
-    alert("Intenta nuevamente")
+//funcion : convertir la moneda argentina a una moneda internacional
 
-*/
+const convertidorMonedas = (monedaArgentina, tipoDeMoneda) => {
+    if (tipoDeMoneda >= 0 && tipoDeMoneda <=3) { 
+        switch (tipoDeMoneda) {
+            case 1:
+                return alert(monedaArgentina / dolarOficial);
+            
+            case 2:
+                return alert(monedaArgentina / dolarImpuesto);
 
-
-//------- if anidados-------
-
-/*
-
-let calificacion = Number(prompt("Ingresa tu calificación"));
-
-if (calificacion >= 1  && calificacion <= 10) {
-    if (calificacion == 10) {
-        alert("Felicitaciones, obtuviste la nota más alta")
-    } else if (calificacion >= 7 && calificacion < 10) {
-        alert("Promocionado")
-    } else if (calificacion >=4 && calificacion < 7) {
-        alert("Aprobado, a final")
-    } else if (calificacion >= 1 && calificacion < 4) {
-        alert("Desaprobado, a recuperatorio")} 
-    } else  
-        alert("La nota no corresponde a una calificación dada")
-    
-*/ 
-
-//-------for---------
-
-/* 
-
-let presenciaAlumnos = prompt("Ingrese los 5 alumnos que se encuentre presentes");
-
-for (let i = 1; i <=5; i++){
-    presenciaAlumnos =prompt("Ingrese los 5 alumnos que se encuentre presentes")
-    console.log("El alumno número " + i + " presente es " + presenciaAlumnos)
+            case 3:
+                return alert(monedaArgentina / euro);
+        
+            default:
+                alert("El número escogido no indica un tipo de moneda")
+                break;
+        }   
+    } else 
+    alert("Error, escoja un número entre los indicados")
 }
 
-*/
+let dolarOficial = 138;
+let dolarImpuesto = 227.7;
+let euro = 135.59;
+let valorIngresado = Number(prompt("Ingresa el valor a convertir en pesos argentinos"));
+let operacion = prompt("Ingresa la moneda a la cual quieras convertir. \n1 - dolar oficial. \n2 - dolar con impuestos. \n3 - euro.");
+let resultado = valorIngresado / operacion;
 
-//-----while-----
-
-/*
-
-let desafioEntregable = prompt("Ingrese aquellos alumnos que han entregado su desafio a fecha. Una vez terminado escriba FINALIZADO")
-
-while(desafioEntregable != "FINALIZADO"){
-    console.log(desafioEntregable + " entrego correctamente su desafio")
-    desafioEntregable = prompt("Ingrese aquellos alumnos que han entregado su desafio a fecha. Una vez terminado escriba FINALIZADO")
-}
-
-*/
+alert(convertidorMonedas(valorIngresado,operacion));
