@@ -11,23 +11,21 @@
 //funcion : convertir la moneda argentina a una moneda internacional
 
 const convertidorMonedas = (monedaArgentina, tipoDeMoneda) => {
-    if (tipoDeMoneda >= 0 && tipoDeMoneda <=3) { 
+    while (tipoDeMoneda >= 0 && tipoDeMoneda <=3) { 
         switch (tipoDeMoneda) {
-            case 1:
-                return alert(monedaArgentina / dolarOficial);
+            case "1":
+                return "Su valor en dolares oficiales es de " + (monedaArgentina / dolarOficial);
             
-            case 2:
-                return alert(monedaArgentina / dolarImpuesto);
+            case "2":
+                return "Su valor en dolares sumado los impuestos es de " + (monedaArgentina / dolarImpuesto);
 
-            case 3:
-                return alert(monedaArgentina / euro);
+            case "3":
+                return "Su valor en euros es de " + (monedaArgentina / euro);
         
             default:
-                alert("El número escogido no indica un tipo de moneda")
                 break;
         }   
-    } else 
-    alert("Error, escoja un número entre los indicados")
+    } return ("Error, escoja un número entre los indicados")
 }
 
 let dolarOficial = 138;
