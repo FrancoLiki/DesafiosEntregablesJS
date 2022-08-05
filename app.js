@@ -11,23 +11,20 @@
 //funcion : convertir la moneda argentina a una moneda internacional
 
 const convertidorMonedas = (monedaArgentina, tipoDeMoneda) => {
-        let mensaje = '';
         switch (tipoDeMoneda) {
             case "1":
-                return mensaje = "Su valor en dolares oficiales es de " + (monedaArgentina / dolarOficial);
-                break;
+                return "Su valor en dolares oficiales es de " + (monedaArgentina / dolarOficial);
+
             
             case "2":
-                return mensaje = "Su valor en dolares sumado los impuestos es de " + (monedaArgentina / dolarImpuesto);
-                break;
+                return  "Su valor en dolares sumado los impuestos es de " + (monedaArgentina / dolarImpuesto);
+
 
             case "3":
-                return mensaje = "Su valor en euros es de " + (monedaArgentina / euro);
-                break;
+                return "Su valor en euros es de " + (monedaArgentina / euro);
 
             default:
-                return mensaje = ("Error, el numero ingresado no corresponde a una moneda");
-                break;
+                return "Error, el numero ingresado no corresponde a una moneda";
         }   
     }
 
@@ -36,7 +33,7 @@ let dolarImpuesto = 227.7;
 let euro = 135.59;
 let valorIngresado = Number(prompt("Ingresa el valor a convertir en pesos argentinos"));
 let operacion = prompt("Ingresa el número correspondiente a la moneda a convertir. \n1 - dolar oficial. \n2 - dolar con impuestos. \n3 - euro.");
-let resultado = valorIngresado / operacion;
+
 
 
 alert(convertidorMonedas(valorIngresado,operacion));
