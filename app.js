@@ -1,48 +1,75 @@
-// La idea es generar un convertidor de monedas, en este caso desde pesos argentinos hacía dolar oficial, dolar oficial + imp, euro.
+const monedasExtranjeras = [
+    {
+        nombreMoneda: "DolarEstadounidense",
+        factorMultiplicador: 300,
+        pais: "Estados Unidos"
+    },  
+    {
+        nombreMoneda: "Euro",
+        factorMultiplicador: 320,
+        pais: "España"
+    },
+    {
+        nombreMoneda: "Libra esterlina",
+        factorMultiplicador: 170,
+        pais: "Reino Unido"
+    },  
+    {
+        nombreMoneda: "Franco suizo",
+        factorMultiplicador: 1245,
+        pais: "Suiza"
+    },
+    {
+        nombreMoneda: "Yen japones",
+        factorMultiplicador: 100,
+        pais: "Japon"
+    },  
+    {
+        nombreMoneda: "Yuanes",
+        factorMultiplicador: 1320,
+        pais: "China"
+    },
+    {
+        nombreMoneda: "Peso uruguayo",
+        factorMultiplicador: 26,
+        pais: "Uruguay"
+    },  
+    {
+        nombreMoneda: "Bolivares",
+        factorMultiplicador: 33,
+        pais: "Bolivia"
+    }
+]
 
-//function convertidorMonedas (monedaArgentina, dolarOficial, dolarImpuestos, euro) {}
-
-// 1 : dolar oficial -> donde un case dirija hacia la propiedad de multiplicar la cantidad de pesos que se indique x el valor de 1 dolar oficial
-
-// 2 : dolar con impuesto -> donde un case dirija hacia la propiedad de multiplicar la cantidad de pesos que se indique x el valor de 1 dolar oficial + 65% de su valor 
-
-// 3 : euro -> donde un case dirija hacia la propiedad de multiplicar la cantidad de pesos que se indique x el valor de 1 euro
-
-//funcion : convertir la moneda argentina a una moneda internacional
-
-/*
-
-const convertidorMonedas = (monedaArgentina, tipoDeMoneda) => {
-    while (ingreso === "acceder") {
-        switch (tipoDeMoneda) {
-            case "1":
-                return "Su valor en dolares oficiales es de " + (monedaArgentina / dolarOficial);
-
-            case "2":
-                return "Su valor en dolares sumado los impuestos es de " + (monedaArgentina / dolarImpuesto);
-
-            case "3":
-                return "Su valor en euros es de " + (monedaArgentina / euro);
-
-            default:
-                return "Error, el numero ingresado no corresponde a una moneda";
-        }  
-    } 
-    return "Gracias por visitar nuestro convertidor"
+class Moneda {
+    constructor(nombre, valor){
+        this.nombre = nombre;
+        this.valor = Number(valor);
+    }
 }
 
+const monedas = [];
 
-let dolarOficial = 138;
-let dolarImpuesto = 227.7;
-let euro = 135.59;
+let pais = "";
+monedasExtranjeras.map((element, index) => {
+    pais = pais + " \n " +  index + " - " + element.pais;
+})
 
-let ingreso = prompt("Ingrese la palabra -acceder-, si desea realizar una operacion. \n En su defecto, ingrese la palabra -no-.")
-let valorIngresado = Number(prompt("Ingresa el valor a convertir en pesos argentinos"));
-let operacion = prompt("Ingresa el número correspondiente a la moneda a convertir. \n1 - dolar oficial. \n2 - dolar con impuestos. \n3 - euro.");
-alert(convertidorMonedas(valorIngresado,operacion));
+const FuncIn = () =>{
+    const ingreso = prompt("Seleccione el número del país deseado, para así convertir la moneda correspondiente al escogido" + pais);
+    const valorIngresado = Number(prompt("Ingresa el valor a convertir en pesos argentinos"));
+    const operacion = valorIngresado / monedasExtranjeras[ingreso].factorMultiplicador;
+    monedas.push(new Moneda(monedasExtranjeras[ingreso].nombreMoneda, operacion))
+    // alert("Su valor es de " + operacion + " " + monedasExtranjeras[ingreso].nombreMoneda);
+    const convertirSi = prompt("Desea covertir nuevamente si/no")
+    if (convertirSi.toLowerCase().trim() === "si" || convertirSi.toLowerCase().trim() === "sí" ){
+        FuncIn();
+    } else
+    for(const dato of monedas){
+        alert("Su valor en " + dato.nombre + " es de " + dato.valor);
+    }
+} 
 
-*/
-
-
-
+FuncIn();
+alert("Gracias por utilizar nuestro convertidor");
 
