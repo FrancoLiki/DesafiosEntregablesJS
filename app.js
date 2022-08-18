@@ -42,9 +42,10 @@ const monedasExtranjeras = [
 ]
 
 class Moneda {
-    constructor(nombre, valor){
+    constructor(nombre, valor, pais){
         this.nombre = nombre;
         this.valor = Number(valor);
+        this.pais = pais;
     }
 }
 
@@ -59,14 +60,13 @@ const FuncIn = () =>{
     const ingreso = prompt("Seleccione el número del país deseado, para así convertir la moneda correspondiente al escogido" + pais);
     const valorIngresado = Number(prompt("Ingresa el valor a convertir en pesos argentinos"));
     const operacion = valorIngresado / monedasExtranjeras[ingreso].factorMultiplicador;
-    monedas.push(new Moneda(monedasExtranjeras[ingreso].nombreMoneda, operacion))
-    // alert("Su valor es de " + operacion + " " + monedasExtranjeras[ingreso].nombreMoneda);
+    monedas.push(new Moneda(monedasExtranjeras[ingreso].nombreMoneda, operacion, monedasExtranjeras[ingreso].pais))
     const convertirSi = prompt("Desea covertir nuevamente si/no")
     if (convertirSi.toLowerCase().trim() === "si" || convertirSi.toLowerCase().trim() === "sí" ){
         FuncIn();
     } else
     for(const dato of monedas){
-        alert("Su valor en " + dato.nombre + " es de " + dato.valor);
+        alert("Su valor en " + dato.nombre + ", moneda referida a " + dato.pais + " es de " + dato.valor);
     }
 } 
 
