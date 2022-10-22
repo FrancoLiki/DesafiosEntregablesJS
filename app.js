@@ -61,14 +61,17 @@ const FuncIn = () =>{
     const valorIngresado = Number(prompt("Ingresa el valor a convertir en pesos argentinos"));
     const operacion = valorIngresado / monedasExtranjeras[ingreso].factorMultiplicador;
     monedas.push(new Moneda(monedasExtranjeras[ingreso].nombreMoneda, operacion, monedasExtranjeras[ingreso].pais))
-    const convertirSi = prompt("Desea covertir nuevamente si/no")
-    if (convertirSi.toLowerCase().trim() === "si" || convertirSi.toLowerCase().trim() === "sí" ){
-        FuncIn();
-    } else
     for(const dato of monedas){
         alert("Su valor en " + dato.nombre + ", moneda referida a " + dato.pais + " es de " + dato.valor);
     }
-} 
+    const convertirSi = prompt("Desea covertir nuevamente? \n Ingrese 1 para covertir  \n Ingrese 2 para no convertir")
+    if (convertirSi  !== "1" || convertirSi  !== "2"){
+        alert("El número ingresado no corresponde a lo solicitado, por favor vuelva a ingresarlo nuevamente");
+        prompt("Desea covertir nuevamente? \n Ingrese 1 para covertir  \n Ingrese 2 para no convertir");
+    } else if (convertirSi === 1){
+        FuncIn();
+    }
+}
 
 FuncIn();
 alert("Gracias por utilizar nuestro convertidor");
