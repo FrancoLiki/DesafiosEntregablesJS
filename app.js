@@ -13,6 +13,8 @@ class Productos{
 
 //Declaracion de productos con unas mismas propiedades 
 
+const ProdcutosTotales = [];
+
 const producto0 = new Productos(0, "granola", "cereal", 120);
 const producto1 = new Productos(1, "almendras", "frutos secos", 250);
 const producto2 = new Productos(2, "copos de maiz", "cereal", 60);
