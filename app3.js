@@ -176,9 +176,6 @@ const crearGanadorLlaves = () =>  {
 }
 
 
-
-
-
 crearGrupos()
 cargarGrupos()
 crearGanadorLlaves()
