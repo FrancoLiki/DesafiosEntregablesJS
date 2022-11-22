@@ -1,0 +1,22 @@
+#posicionamietoLlaves {
+    display: flex;
+    justify-content: space-between;
+}
+
+body {
+    background-color: gray;
+}
+/* 
+#octavosFinal {
+    display: flex;
+    justify-content: space-between;
+} */
+
+#ganadoresLlaves { 
+    display: flex;
+} 
+
+#enviarEquipos {
+    display: block;
+    background-color: aqua;
+} 

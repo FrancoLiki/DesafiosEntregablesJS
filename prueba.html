@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script type="text/javascript">
+		let faseGrupos = [[],[]];
+		function Equipo(nombre) {
+		  this.nombre = nombre;
+		}
+		function cargarGrupos(){
+			faseGrupos[0].push(new Equipo("Argentina"))
+			faseGrupos[0].push(new Equipo("Brasil"))
+			faseGrupos[1].push(new Equipo("Francia"))
+			faseGrupos[1].push(new Equipo("Italia"))
+			faseGrupos.forEach(function(elemento, indice) {  
+				elemento.forEach(function(equipo, indice2) {
+				    console.log(elemento);
+
+				var divNuevo = document.createElement("div"); 
+				var nuevoContenido = document.createTextNode(equipo.nombre);
+	  			divNuevo.appendChild(nuevoContenido); 
+	  			document.getElementById("grupo_"+(parseInt(indice)+1)).appendChild(divNuevo);  
+				})
+			})/**/
+		}
+	</script>
+</head>
+<body>
+		<button type="button" onclick="cargarGrupos()">Cargar grupos</button>
+		<div id="grupo_1">
+			<div>Grupo 1</div>
+			
+		</div>
+		<div id="grupo_2">
+			<div>Grupo 2</div>
+			
+		</div>
+		
+</body>
+</html>
